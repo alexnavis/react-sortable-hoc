@@ -24,7 +24,7 @@ export const events = {
 };
 
 export const vendorPrefix = (function() {
-  if (typeof window === 'undefined' || typeof document === 'undefined') return ''; // server environment
+  if (typeof window === 'undefined' || typeof document === 'undefined' || !window.getComputedStyle) return ''; // server environment
   // fix for:
   //    https://bugzilla.mozilla.org/show_bug.cgi?id=548397
   //    window.getComputedStyle() returns null inside an iframe with display: none
